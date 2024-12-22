@@ -1,0 +1,37 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    .theme--dark {
+        --primary-bg-color: #2d2929;
+        --primary-txt-color: #aaaaaa;
+        --secondary-bg-color: #1f1d1d;
+        --tertiary-bg-color: #444040;
+        --active-bg-color: #4070a9;
+        --active-txt-color: #eeeeee;
+    }
+
+    .theme--light {
+        --primary-bg-color: #eeeeee;
+        --primary-txt-color: #222222;
+        --secondary-bg-color: #ffffff;
+        --tertiary-bg-color: #999999;
+        --active-bg-color: #1b6ec2;
+        --active-txt-color: #ffffff;
+    }
+}
+
+@layer base {
+    .theme--dark {
+        a.btn-primary {
+            background-color: var(--active-bg-color) !important;
+            color: var(--active-txt-color);
+        }
+    }
+}
+
+@import "Components/Layout/AdminLayout.scss";
+@import "Components/Layout/AdminPageTemplate.scss";
+@import "Components/Layout/AdminLayoutHeader.scss";
+@import "Components/ThemeModeSelector.scss";

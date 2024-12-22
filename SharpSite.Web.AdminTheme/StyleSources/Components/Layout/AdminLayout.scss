@@ -1,0 +1,37 @@
+﻿#sharpsite-admin-layout {
+    @apply h-screen flex flex-col;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-txt-color);
+
+    #main-section {
+        @apply flex-1 flex overflow-hidden;
+
+        #primary-side-section {
+            @apply hidden md:block flex-initial overflow-auto;
+
+            a {
+                &.nav-link {
+                    color: var(--primary-txt-color);
+
+                    &.active {
+                        background-color: var(--active-bg-color);
+                        color: var(--active-txt-color);
+                    }
+
+                    &:hover {
+                        background-color: var(--tertiary-bg-color);
+                    }
+                }
+            }
+        }
+
+        main {
+            @apply flex-1 px-2 overflow-auto;
+        }
+    }
+
+    footer {
+        @apply p-1;
+        background-color: var(--secondary-bg-color);
+    }
+}

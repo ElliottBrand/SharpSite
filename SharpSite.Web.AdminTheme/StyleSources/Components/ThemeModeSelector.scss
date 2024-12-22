@@ -1,0 +1,14 @@
+﻿#theme-mode-selector {
+    @apply inline-flex items-center h-full;
+    .icon-container {
+        &:hover {
+            @apply cursor-pointer;
+        }
+
+        svg {
+            @apply ml-auto mr-1;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

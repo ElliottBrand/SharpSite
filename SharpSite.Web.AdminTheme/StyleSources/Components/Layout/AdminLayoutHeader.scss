@@ -1,0 +1,29 @@
+﻿#admin-layout-header {
+    @apply text-xl p-4 py-2;
+    background-color: var(--secondary-bg-color);
+
+    .primary-layout-header-section {
+        @apply flex items-center;
+
+        .mobile-menu-icon-container {
+            @apply ltr:mr-2 rtl:ml-2 cursor-pointer md:hidden;
+
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        .logo-container {
+            @apply flex-initial;
+        }
+
+        .theme-header-content {
+            @apply flex-1 flex items-center justify-end;
+        }
+    }
+
+    .mobile-menu-section {
+        @apply md:hidden;
+    }
+}

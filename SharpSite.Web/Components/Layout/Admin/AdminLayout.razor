@@ -1,0 +1,18 @@
+﻿@using SharpSite.Web.Components.Admin
+@inherits LayoutComponentBase
+
+@* Theme is set to dark mode by default and changed via ThemeModeSelector.razor *@
+<section id="sharpsite-admin-layout" class="theme--dark">
+    <AdminLayoutHeader />
+    <section id="main-section">
+        <section id="primary-side-section">
+            <ManageNavMenu/>
+        </section>
+        <main>
+            @Body
+        </main>
+    </section>
+    <footer>
+        Footer content here...
+    </footer>
+</section>
