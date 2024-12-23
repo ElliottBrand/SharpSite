@@ -10,10 +10,10 @@
   --active-txt-color: #eeeeee;
 }
 :root .theme--light {
-  --primary-bg-color: #eeeeee;
+  --primary-bg-color: #f4f9fb;
   --primary-txt-color: #222222;
-  --secondary-bg-color: #ffffff;
-  --tertiary-bg-color: #999999;
+  --secondary-bg-color: #eff5f7;
+  --tertiary-bg-color: #a3c0d2;
   --active-bg-color: #1b6ec2;
   --active-txt-color: #ffffff;
 }
