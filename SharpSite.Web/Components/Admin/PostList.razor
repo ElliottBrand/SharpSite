@@ -3,29 +3,32 @@
 @using Microsoft.AspNetCore.Components.QuickGrid
 @inject IPostRepository PostService
 
-<PageTitle>@Localizer["sharpsite_postsadmin"]</PageTitle>
 
-<AdminPageTemplate Title="@Localizer["sharpsite_postsadmin"]">
-    @if (Posts is null)
-    {
-        <p><em>@Localizer["sharpsite_loading"]</em></p>
-    }
-    else
-    {
-        @** add a link to create a new post *@
-        <a href="/admin/post">@Localizer["sharpsite_newpost"]</a>
+<PageTitle>@Localizer[SharedResource.sharpsite_postsadmin]</PageTitle>
 
-        @** use a quickgrid to format the list of posts with each posts title being a link to the editpost page for that post *@
-        <QuickGrid Items="@GridPosts" style="width: 100%">
-            <TemplateColumn Title="@Localizer["sharpsite_postlist_title"]">
-                <a href="@($"/admin/post{context.ToUrl()}")">@context.Title</a>
-            </TemplateColumn>
-            <PropertyColumn Property="@(p => p.PublishedDate.ToLocalTime())" 
-                            Format="g"
-                            Title="@Localizer["sharpsite_postlist_publisheddate"]" />
-        </QuickGrid>
-    }
-</AdminPageTemplate>
+<h1>@Localizer[SharedResource.sharpsite_postsadmin]</h1>
+
+@if (Posts is null)
+{
+	<p><em>@Localizer[SharedResource.sharpsite_loading]</em></p>
+}
+else
+{
+
+	@** add a link to create a new post *@
+	<a href="/admin/post">@Localizer[SharedResource.sharpsite_newpost]</a>
+		
+
+	@** use a quickgrid to format the list of posts with each posts title being a link to the editpost page for that post *@
+	<QuickGrid Items="@GridPosts" style="width: 100%">
+		<TemplateColumn Title="@Localizer[SharedResource.sharpsite_postlist_title]">
+				<a href="@($"/admin/post{context.ToUrl()}")">@context.Title</a>
+		</TemplateColumn>
+		<PropertyColumn Property="@(p => p.PublishedDate.ToLocalTime())" 
+			Format="g"
+						Title="@Localizer[SharedResource.sharpsite_postlist_publisheddate]" />
+	</QuickGrid>
+}
 
 @code {
 	private IEnumerable<Post>? Posts { get; set; }

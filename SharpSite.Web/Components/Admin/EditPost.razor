@@ -9,46 +9,54 @@
 <PageTitle>
     @if (string.IsNullOrEmpty(Slug))
     {
-        <text>@Localizer["sharpsite_newpost"]</text>
+        <text>@Localizer[SharedResource.sharpsite_newpost]</text>
     }
     else
     {
-		<text>@Localizer["sharpsite_editpost"]</text>
+		<text>@Localizer[SharedResource.sharpsite_editpost]</text>
     }
 </PageTitle>
 
-<AdminPageTemplate Title="@(string.IsNullOrWhiteSpace(Slug) ? Localizer["sharpsite_newpost"] : Localizer["sharpsite_editpost"])">
-    @if (Post is not null)
+<h1>
+    @if (string.IsNullOrEmpty(Slug))
     {
-        <div class="form-group">
-            <label for="title">@Localizer["sharpsite_editpost_title"]</label>
-            <input type="text" class="form-control" id="title" placeholder="@Localizer["sharpsite_editpost_title"]" @bind="Post.Title" />
-        </div>
+        <text>@Localizer[SharedResource.sharpsite_newpost]</text>
+    }
+    else
+    {
+        <text>@Localizer[SharedResource.sharpsite_editpost]</text>
+    }
+</h1>
 
-        @** add a publish date field *@
-        <div class="form-group">
-            <label for="publishDate">@Localizer["sharpsite_editpost_publishdate"]</label>
-            <input type="date" class="form-control" id="publishDate" @bind="Post.PublishedDate" />
-        </div>
+@if (Post is not null)
+{
+<div class="form-group">
+    <label for="title">@Localizer[SharedResource.sharpsite_editpost_title]</label>
+		<input type="text" class="form-control" id="title" placeholder="@Localizer[SharedResource.sharpsite_editpost_title]" @bind="Post.Title" />
+</div>
 
-        @** add a textarea for the Post description *@
-        <div class="form-group">
-            <label for="description">@Localizer["sharpsite_editpost_description"]</label>
-            <textarea class="form-control" id="description" rows="3" @bind="Post.Description"></textarea>
-        </div>
+@** add a publish date field *@
+<div class="form-group">
+    <label for="publishDate">@Localizer[SharedResource.sharpsite_editpost_publishdate]</label>
+	<input type="date" class="form-control" id="publishDate" @bind="Post.PublishedDate" />
+</div>
 
-        <div class="form-group">
-            <label for="content">@Localizer["sharpsite_editpost_content"]</label>
-            <TextEditor @bind-Content="@Post.Content" />
-        </div>
+@** add a textarea for the Post description *@
+<div class="form-group">
+	<label for="description">@Localizer[SharedResource.sharpsite_editpost_description]</label>
+	<textarea class="form-control" id="description" rows="3" @bind="Post.Description"></textarea>
+</div>
+
+<div class="form-group">
+    <label for="content">@Localizer[SharedResource.sharpsite_editpost_content]</label>
+	<TextEditor @bind-Content="@Post.Content" />
+</div>
 
     }
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary" @onclick="SavePost">@Localizer["sharpsite_save"]</button>
-    </div>
-</AdminPageTemplate>
-
+<div class="form-group">
+	<button type="submit" class="btn btn-primary" @onclick="SavePost">@Localizer[SharedResource.sharpsite_save]</button>
+</div>
 @code {
 		[Parameter] public string? Slug { get; set; }
 		[Parameter] public int? UrlDate { get; set; }
