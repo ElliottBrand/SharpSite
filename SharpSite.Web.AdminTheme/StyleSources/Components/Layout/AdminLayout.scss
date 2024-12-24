@@ -31,7 +31,7 @@
     }
 
     footer {
-        @apply p-1;
+        @apply p-1.5 text-sm;
         background-color: var(--secondary-bg-color);
     }
 }

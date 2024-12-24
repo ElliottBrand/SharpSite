@@ -1,0 +1,14 @@
+﻿.page-list-page {
+    .page-item {
+        @apply mb-4 pb-2 border-b;
+        border-color: var(--accent-color-1);
+
+        h5 {
+            @apply text-lg;
+        }
+
+        .page-item-content {
+            @apply text-base;
+        }
+    }
+}

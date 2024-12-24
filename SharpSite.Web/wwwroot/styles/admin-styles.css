@@ -504,6 +504,7 @@ video {
   --primary-txt-color: #aaaaaa;
   --secondary-bg-color: #1f1d1d;
   --tertiary-bg-color: #444040;
+  --accent-color-1: #555555;
   --active-bg-color: #4070a9;
   --active-txt-color: #eeeeee;
 }
@@ -512,6 +513,7 @@ video {
   --primary-txt-color: #222222;
   --secondary-bg-color: #eff5f7;
   --tertiary-bg-color: #a3c0d2;
+  --accent-color-1: #cccccc;
   --active-bg-color: #1b6ec2;
   --active-txt-color: #ffffff;
 }
@@ -555,7 +557,9 @@ video {
   padding-right: 0.5rem;
 }
 #sharpsite-admin-layout footer {
-  padding: 0.25rem;
+  padding: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   background-color: var(--secondary-bg-color);
 }
 
@@ -631,4 +635,37 @@ video {
   margin-right: 0.25rem;
   width: 20px;
   height: 20px;
+}
+
+.page-list-page .page-item {
+  margin-bottom: 1rem;
+  border-bottom-width: 1px;
+  padding-bottom: 0.5rem;
+  border-color: var(--accent-color-1);
+}
+.page-list-page .page-item h5 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.page-list-page .page-item .page-item-content {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.form-control, .form-select {
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-txt-color);
+  border-color: var(--accent-color-1);
+}
+
+div.EasyMDEContainer {
+  border-color: var(--accent-color-1);
+}
+div.EasyMDEContainer .CodeMirror {
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-txt-color);
+  border-color: var(--accent-color-1);
+}
+div.EasyMDEContainer .editor-toolbar {
+  border-color: var(--accent-color-1);
 }

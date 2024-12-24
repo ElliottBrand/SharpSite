@@ -1,0 +1,21 @@
+﻿// This is a bootstrap class, so some of the styling is coming from 
+// boostrap in the Web project.
+.form-control, .form-select {
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-txt-color);
+    border-color: var(--accent-color-1);
+}
+
+div.EasyMDEContainer {
+    border-color: var(--accent-color-1);
+
+    .CodeMirror {
+        background-color: var(--secondary-bg-color);
+        color: var(--primary-txt-color);
+        border-color: var(--accent-color-1);
+    }
+
+    .editor-toolbar {
+        border-color: var(--accent-color-1);
+    }
+}

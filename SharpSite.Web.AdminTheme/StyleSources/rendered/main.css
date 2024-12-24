@@ -6,6 +6,7 @@
   --primary-txt-color: #aaaaaa;
   --secondary-bg-color: #1f1d1d;
   --tertiary-bg-color: #444040;
+  --accent-color-1: #555555;
   --active-bg-color: #4070a9;
   --active-txt-color: #eeeeee;
 }
@@ -14,6 +15,7 @@
   --primary-txt-color: #222222;
   --secondary-bg-color: #eff5f7;
   --tertiary-bg-color: #a3c0d2;
+  --accent-color-1: #cccccc;
   --active-bg-color: #1b6ec2;
   --active-txt-color: #ffffff;
 }
@@ -49,7 +51,7 @@
   @apply flex-1 px-2 overflow-auto;
 }
 #sharpsite-admin-layout footer {
-  @apply p-1;
+  @apply p-1.5 text-sm;
   background-color: var(--secondary-bg-color);
 }
 
@@ -97,4 +99,33 @@
   @apply ml-auto mr-1;
   width: 20px;
   height: 20px;
+}
+
+.page-list-page .page-item {
+  @apply mb-4 pb-2 border-b;
+  border-color: var(--accent-color-1);
+}
+.page-list-page .page-item h5 {
+  @apply text-lg;
+}
+.page-list-page .page-item .page-item-content {
+  @apply text-base;
+}
+
+.form-control, .form-select {
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-txt-color);
+  border-color: var(--accent-color-1);
+}
+
+div.EasyMDEContainer {
+  border-color: var(--accent-color-1);
+}
+div.EasyMDEContainer .CodeMirror {
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-txt-color);
+  border-color: var(--accent-color-1);
+}
+div.EasyMDEContainer .editor-toolbar {
+  border-color: var(--accent-color-1);
 }

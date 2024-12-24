@@ -1,8 +1,7 @@
 ﻿@using SharpSite.Web.Components.Admin
 @inherits LayoutComponentBase
 
-@* Theme is set to dark mode by default and changed via ThemeModeSelector.razor *@
-<section id="sharpsite-admin-layout" class="theme--dark">
+<section id="sharpsite-admin-layout">
     <AdminLayoutHeader />
     <section id="main-section">
         <section id="primary-side-section">
@@ -13,6 +12,6 @@
         </main>
     </section>
     <footer>
-        Footer content here...
+        &copy; @DateTime.Now.Year SharpSite
     </footer>
 </section>

@@ -6,36 +6,35 @@
 
 <PageTitle>@Localizer[SharedResource.sharpsite_useradmin]</PageTitle>
 
-<h3>@Localizer[SharedResource.sharpsite_userlist]</h3>
+<AdminPageTemplate Title="@Localizer[SharedResource.sharpsite_userlist]">
+    <QuickGrid Items="GridUsers" TGridItem="SharpSiteUser" Pagination="@pagination">
+        <PropertyColumn Property="@(u => u.UserName)" Title="Username" />
+        <PropertyColumn Property="@(u => u.DisplayName)" Title="Display Name" />
+        <TemplateColumn Title="Role">
+            @if (context.UserName != editUserId)
+            {
+                <button class="btn-link btn" @onclick="() => editUserId = context.UserName!">@context.UserName</button>
+            }
+            else
+            {
+                <InputSelect @bind-Value="context.Role">
+                    <option value="">Select Role</option>
+                    @foreach (var role in Constants.Roles.AllRoles)
+                    {
+                        <option value="@role">@role</option>
+                    }
+                </InputSelect>
+                <button class="btn-link btn" @onclick="SaveRoleForUser">Save</button>
+                <button class="btn-link btn" @onclick="() => editUserId = string.Empty">Cancel</button>
+            }
+        </TemplateColumn>
+    </QuickGrid>
 
-<QuickGrid Items="GridUsers" TGridItem="SharpSiteUser" Pagination="@pagination">
-	<PropertyColumn Property="@(u => u.UserName)" Title="Username" />
-	<PropertyColumn Property="@(u => u.DisplayName)" Title="Display Name" />
-	<TemplateColumn Title="Role">
-		@if (context.UserName != editUserId)
-		{
-			<button class="btn-link btn" @onclick="() => editUserId = context.UserName!">@context.UserName</button>
-		}
-		else
-		{
-			<InputSelect @bind-Value="context.Role">
-				<option value="">Select Role</option>
-				@foreach (var role in Constants.Roles.AllRoles)
-				{
-					<option value="@role">@role</option>
-				}
-			</InputSelect>
-			<button class="btn-link btn" @onclick="SaveRoleForUser">Save</button>
-			<button class="btn-link btn" @onclick="() => editUserId = string.Empty">Cancel</button>
-		}
-	</TemplateColumn>
-
-</QuickGrid>
-
-@if (Users?.Count() > 10)
-{
-	<Paginator State="@pagination" />
-}
+    @if (Users?.Count() > 10)
+    {
+        <Paginator State="@pagination" />
+    }
+</AdminPageTemplate>
 
 @code {
 	private IEnumerable<SharpSiteUser>? Users { get; set; }
@@ -53,6 +52,7 @@
 		await base.OnInitializedAsync();
 
 	}
+
 	private async Task SaveRoleForUser()
 	{
 		var editUser = Users!.First(u => u.UserName == editUserId);

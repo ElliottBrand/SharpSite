@@ -19,14 +19,21 @@
 </div>
 
 @code {
+    [Inject] private NavigationManager NavigationManager { get; set; } = null!;
     [Inject] private ILogger<ThemeModeSelector> Logger { get; set; } = null!;
     [Inject] private IJSRuntime JsRuntime { get; set; } = null!;
     private IJSObjectReference? _scriptReference;
     private bool _darkMode = true;
 
+    protected override void OnInitialized()
+    {
+        NavigationManager.LocationChanged += HandleNavigationChanged;
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (!firstRender) return;
+
         await using var reference = await JsRuntime.InvokeAsync<IJSObjectReference?>("import", "/Components/Admin/ThemeModeSelector.razor.js");
         if (reference == null)
         {
@@ -35,6 +42,17 @@
         }
 
         _scriptReference = await reference.InvokeAsync<IJSObjectReference?>("getThemeModeScripts");
+
+        // Get selected theme from local storage, if set.
+        if (_scriptReference != null)
+        {
+            var selectedTheme = await _scriptReference.InvokeAsync<string>("getSelectedTheme");
+            if (!string.IsNullOrWhiteSpace(selectedTheme) && selectedTheme.Equals("theme--dark", StringComparison.OrdinalIgnoreCase))
+                _darkMode = true;
+            else if (!string.IsNullOrWhiteSpace(selectedTheme))
+                _darkMode = false;
+        }
+
         await SetThemeModeAsync();
     }
 
@@ -55,5 +73,13 @@
         if (_scriptReference == null) return;
 
         await _scriptReference.InvokeVoidAsync("setThemeMode", _darkMode);
+    }
+
+    private async void HandleNavigationChanged(object? sender, LocationChangedEventArgs args)
+    {
+        // TODO: Look into this issue.
+        // Something weird is going on with render modes and the theme is being
+        // removed from the DOM with every page change. This is just a hack for the moment.
+        await SetThemeModeAsync();
     }
 }

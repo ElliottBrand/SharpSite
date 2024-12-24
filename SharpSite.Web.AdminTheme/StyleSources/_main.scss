@@ -8,6 +8,7 @@
         --primary-txt-color: #aaaaaa;
         --secondary-bg-color: #1f1d1d;
         --tertiary-bg-color: #444040;
+        --accent-color-1: #555555;
         --active-bg-color: #4070a9;
         --active-txt-color: #eeeeee;
     }
@@ -17,6 +18,7 @@
         --primary-txt-color: #222222;
         --secondary-bg-color: #eff5f7;
         --tertiary-bg-color: #a3c0d2;
+        --accent-color-1: #cccccc;
         --active-bg-color: #1b6ec2;
         --active-txt-color: #ffffff;
     }
@@ -35,3 +37,5 @@
 @import "Components/Layout/AdminPageTemplate.scss";
 @import "Components/Layout/AdminLayoutHeader.scss";
 @import "Components/ThemeModeSelector.scss";
+@import "Components/PagesList.scss";
+@import "Components/Global/Global.scss";
