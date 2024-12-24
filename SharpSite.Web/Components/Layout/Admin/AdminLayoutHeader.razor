@@ -24,5 +24,30 @@
 </header>
 
 @code {
+    [Inject] private IJSRuntime JsRuntime { get; set; } = null!;
+    [Inject] private ILogger<AdminLayoutHeader> Logger { get; set; } = null!;
     private bool _showMobileMenu;
+
+    // Only have this script loading here due to render mode stuff and this file loads
+    // on every page. Should move this, but just testing for now.
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        await using var objectReference = await JsRuntime.InvokeAsync<IJSObjectReference?>("import", "/Components/Layout/Admin/AdminLayoutHeader.razor.js");
+        if (objectReference == null)
+        {
+            Logger.LogError("AdminLayout.razor.js not found.");
+            return;
+        }
+
+        await using var scriptReference = await objectReference.InvokeAsync<IJSObjectReference?>("getAdminLayoutScripts");
+        if (scriptReference == null)
+        {
+            Logger.LogError("Unable to retrieve AdminLayoutScripts.");
+            return;
+        }
+
+        await scriptReference.InvokeVoidAsync("setDirectionByLanguage");
+    }
 }

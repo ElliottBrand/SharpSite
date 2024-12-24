@@ -27,12 +27,12 @@
   }
 }
 #sharpsite-admin-layout {
-  @apply h-screen flex flex-col;
+  @apply min-h-screen md:h-screen flex flex-col;
   background-color: var(--primary-bg-color);
   color: var(--primary-txt-color);
 }
 #sharpsite-admin-layout #main-section {
-  @apply flex-1 flex overflow-hidden;
+  @apply flex-1 flex md:overflow-hidden;
 }
 #sharpsite-admin-layout #main-section #primary-side-section {
   @apply hidden md:block flex-initial overflow-auto;
@@ -48,7 +48,7 @@
   background-color: var(--tertiary-bg-color);
 }
 #sharpsite-admin-layout #main-section main {
-  @apply flex-1 px-2 overflow-auto;
+  @apply flex-1 px-2 md:overflow-auto;
 }
 #sharpsite-admin-layout footer {
   @apply p-1.5 text-sm;

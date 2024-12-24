@@ -519,15 +519,28 @@ video {
 }
 #sharpsite-admin-layout {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: column;
+}
+@media (min-width: 768px) {
+
+  #sharpsite-admin-layout {
+    height: 100vh;
+  }
+}
+#sharpsite-admin-layout {
   background-color: var(--primary-bg-color);
   color: var(--primary-txt-color);
 }
 #sharpsite-admin-layout #main-section {
   display: flex;
   flex: 1 1 0%;
-  overflow: hidden;
+}
+@media (min-width: 768px) {
+
+  #sharpsite-admin-layout #main-section {
+    overflow: hidden;
+  }
 }
 #sharpsite-admin-layout #main-section #primary-side-section {
   display: none;
@@ -552,9 +565,14 @@ video {
 }
 #sharpsite-admin-layout #main-section main {
   flex: 1 1 0%;
-  overflow: auto;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+@media (min-width: 768px) {
+
+  #sharpsite-admin-layout #main-section main {
+    overflow: auto;
+  }
 }
 #sharpsite-admin-layout footer {
   padding: 0.375rem;
