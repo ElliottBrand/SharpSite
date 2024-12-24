@@ -4,9 +4,7 @@
 @inject NavigationManager NavManager
 @rendermode InteractiveServer
 
-<PageTitle>@ThisPageTitle</PageTitle>
-
-<AdminPageTemplate Title="@ThisPageTitle">
+<AdminPageTemplate PageTitle="@ThisPageTitle" Title="@ThisPageTitle">
     @if (Page != null)
     {
         <div class="form-group">

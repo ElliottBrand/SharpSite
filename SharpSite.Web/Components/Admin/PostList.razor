@@ -3,9 +3,9 @@
 @using Microsoft.AspNetCore.Components.QuickGrid
 @inject IPostRepository PostService
 
-<PageTitle>@Localizer[SharedResource.sharpsite_postsadmin]</PageTitle>
-
-<AdminPageTemplate Title="@Localizer[SharedResource.sharpsite_postsadmin]">
+<AdminPageTemplate 
+    PageTitle="@Localizer[SharedResource.sharpsite_postsadmin]"
+    Title="@Localizer[SharedResource.sharpsite_postsadmin]">
     @if (Posts is null)
     {
         <p><em>@Localizer[SharedResource.sharpsite_loading]</em></p>

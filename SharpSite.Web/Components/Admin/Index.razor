@@ -1,9 +1,9 @@
 ﻿@page "/admin"
 @attribute [Authorize(Roles = Constants.Roles.AllUsers)]
 
-<PageTitle>@Localizer[SharedResource.sharpsite_admin]</PageTitle>
-
-<AdminPageTemplate Title="@Localizer[SharedResource.sharpsite_generaladmin]">
+<AdminPageTemplate 
+    PageTitle="@Localizer[SharedResource.sharpsite_admin]"
+    Title="@Localizer[SharedResource.sharpsite_generaladmin]">
     <p>@Localizer[SharedResource.sharpsite_admin_headertext]</p>
 
     <AdminSiteSettings />

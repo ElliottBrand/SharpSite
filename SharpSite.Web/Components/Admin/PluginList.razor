@@ -2,9 +2,9 @@
 @attribute [Authorize(Roles = Constants.Roles.Admin)]
 @inject ApplicationState AppState
 
-<PageTitle>@Localizer[SharedResource.sharpsite_installedplugins]</PageTitle>
-
-<AdminPageTemplate Title="@Localizer[SharedResource.sharpsite_installedplugins]">
+<AdminPageTemplate 
+    PageTitle="@Localizer[SharedResource.sharpsite_installedplugins]"
+    Title="@Localizer[SharedResource.sharpsite_installedplugins]">
     @* Add a button that links to the add plugin page With the text add new plugin  *@
     <div class="my-4">
         <a href="/admin/addplugin" class="btn btn-primary">@Localizer[SharedResource.sharpsite_addnewplugin]</a>

@@ -1,8 +1,8 @@
 ﻿@page "/admin/site"
 @attribute [Authorize(Roles = Constants.Roles.Admin)]
 
-<PageTitle>@Localizer[SharedResource.sharpsite_site_appearance_admin]</PageTitle>
-
-<AdminPageTemplate Title="@Localizer[SharedResource.sharpsite_site_appearance_admin]">
+<AdminPageTemplate 
+    PageTitle="@Localizer[SharedResource.sharpsite_site_appearance_admin]"
+    Title="@Localizer[SharedResource.sharpsite_site_appearance_admin]">
     <ThemeSelect />
 </AdminPageTemplate>

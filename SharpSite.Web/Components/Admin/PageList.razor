@@ -4,9 +4,10 @@
 @inject NavigationManager NavManager
 @rendermode InteractiveServer
 
-<PageTitle>@Localizer[SharedResource.sharpsite_pageadmin]</PageTitle>
-
-<AdminPageTemplate Title="@Localizer[SharedResource.sharpsite_pageadmin]" Class="page-list-page">
+<AdminPageTemplate 
+    PageTitle="@Localizer[SharedResource.sharpsite_pageadmin]"
+    Title="@Localizer[SharedResource.sharpsite_pageadmin]" 
+    Class="page-list-page">
     @* show a list of pages that are currently in use.  Each page record should be a link to a 'EditPage' page*@
     @foreach (var p in Pages)
     {

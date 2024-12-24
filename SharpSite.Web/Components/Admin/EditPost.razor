@@ -6,18 +6,9 @@
 @inject IStringLocalizer<SharedResource> Localizer
 @rendermode InteractiveServer
 
-<PageTitle>
-    @if (string.IsNullOrEmpty(Slug))
-    {
-        <text>@Localizer[SharedResource.sharpsite_newpost]</text>
-    }
-    else
-    {
-        <text>@Localizer[SharedResource.sharpsite_editpost]</text>
-    }
-</PageTitle>
-
-<AdminPageTemplate Title="@(string.IsNullOrWhiteSpace(Slug) ? Localizer[SharedResource.sharpsite_newpost] : Localizer[SharedResource.sharpsite_editpost])">
+<AdminPageTemplate 
+    PageTitle="@(string.IsNullOrWhiteSpace(Slug) ? Localizer[SharedResource.sharpsite_newpost] : Localizer[SharedResource.sharpsite_editpost])"
+    Title="@(string.IsNullOrWhiteSpace(Slug) ? Localizer[SharedResource.sharpsite_newpost] : Localizer[SharedResource.sharpsite_editpost])">
     @if (Post is not null)
     {
         <div class="form-group">
